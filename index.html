@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Akash!</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-image:url(https://img.freepik.com/free-vector/flat-design-wildflower-heart-background_23-2150534247.jpg?semt=ais_hybrid);
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            background-size: contain;
+                }
+
+        .parallax {
+            position:sticky;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(255, 182, 193, 0.8), rgba(255, 255, 255, 1));
+        }
+
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.jpg') no-repeat center center/cover;
+            z-index: -1;
+            transform: translateZ(-1px) scale(1.5);
+            filter: brightness(70%);
+        }
+
+        .header {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(255, 182, 193, 0.8);
+            border-bottom: 5px solid #ff69b4;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header h1 {
+            color: #ff4081;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 5px solid #ff69b4;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .header p {
+            color: #ff4081;
+            font-size: 1.2em;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .section {
+            padding: 30px;
+            margin: 20px;
+            background: #ffebee;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h2 {
+            color: #ff4081;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .letter-container {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.letter-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.letter {
+    position: relative;
+    width: 100%;
+    background: #f5f5f5;
+    border: 2px solid #d1d1d1;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+}
+
+.letter.open {
+    transform: rotateX(0deg);
+}
+
+.letter .flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: #fff;
+    border-bottom: 2px solid #d1d1d1;
+    transform-origin: top;
+    transform: rotateX(0deg);
+    transition: transform 0.8s;
+}
+
+.letter.open .flap {
+    transform: rotateX(-90deg);
+}
+
+.letter .content {
+    padding: 20px;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: transform 0.8s;
+}
+
+.letter.open .content {
+    transform: rotateX(0deg);
+}
+
+.letter .flap-text {
+    padding: 10px;
+    text-align: center;
+    background: #e3f2fd;
+}
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section li {
+            background: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .timeline-slider {
+            text-align: center;
+            padding: 20px;
+            background: #ffebee;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #timeline-slider {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #slider-output {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #ff4081;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #ffcccb;
+            border-top: 5px solid #ff69b4;
+            image-orientation: 0deg;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 10px 0;
+            background: #ff4081;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background: #ff80ab;
+            transform: scale(1.05);
+        }
+
+        .letter-container {
+            position: relative;
+            width: 300px;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+
+        .letter-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .letter {
+            position: relative;
+            width: 100%;
+            background: #f5f5f5;
+            border: 2px solid #d1d1d1;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            transform: rotateX(90deg);
+            transform-origin: bottom;
+        }
+
+        .letter.open {
+            transform: rotateX(0deg);
+        }
+
+        .letter .flap {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: #fff;
+            border-bottom: 2px solid #d1d1d1;
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: transform 0.8s;
+        }
+
+        .letter.open .flap {
+            transform: rotateX(-90deg);
+        }
+
+        .letter .content {
+            padding: 20px;
+            transform: rotateX(-90deg);
+            transform-origin: bottom;
+            transition: transform 0.8s;
+        }
+
+        .letter.open .content {
+            transform: rotateX(0deg);
+        }
+
+        .letter .flap-text {
+            padding: 10px;
+            text-align: center;
+            background: #e3f2fd;
+        }
+
+        .slideshow-container {
+            max-width: 250px;
+            position: relative;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: none;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+            background: #ffebee;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        .music-container {
+    text-align: center;
+}
+
+.music-button {
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.music-button:hover {
+    background-color: #ff4c4c;
+    transform: scale(1.05);
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.label {
+    font-size: 16px;
+}
+
+audio {
+    display: none;
+}
+    </style>
+</head>
+<body>
+
+<div class="parallax header">
+    <h1> <t> omg he is 20</t></h1>
+    <h1>Happy Birthday Akash!</h1>
+    <img src="starters.jpeg" alt="Us Together">
+    <p>My handsome boy deserves all the love in the world <3</p>
+    <div class="music-container">
+        <button id="music-button" class="music-button">
+            <span class="icon">&#9835;</span> <!-- Music note icon -->
+            <span class="label">CLICK ME!</span>
+        </button>
+        <audio id="background-music" src="wishes.mp4" preload="auto"></audio>
+    </div>
+</div>
+<audio src="life.mp3" autoplay hidden></audio>
+
+<div class="section" id="why-i-love-you">
+    <h2>Why I Love You</h2>
+    <ul>
+        <li>Your lingo</li>
+        <li>Humorous, you are</li>
+        <li>MF cannot lie</li>
+        <li>Mid music taste like that of a millennial</li>
+        <li>Smort ass (NEET topper)</li>
+        <li>Shawt king</li>
+        <li>Kanjoos for good</li>
+        <li>Picks me up for bike rides</li>
+        <li>Thoughtful</li>
+        <li>Pecs and arms to die for</li>
+        <li>Super duper patient and understanding except when you mimimimi me</li>
+        <li>Them fingers play the keyboard like a professional</li>
+    </ul>
+
+</div>
+<button id="playButton" style="display: none;">Play</button>
+<div class="section" id="timeline">
+    <h2>Every meet ever</h2>
+    <div id="slider-output">Slide the button across</div>
+    <input type="range" id="timeline-slider" min="1" max="28" step="1">
+</div>
+
+<div class="section" id="slideshow">
+    <h2>All i need is youuuu</h2>
+    <div class="slideshow-container">
+
+        <div class="slides">
+            <img src="scary7.jpeg" alt="Escape Room">
+        </div>
+
+        <div class="slides">
+            <img src="happy.jpeg" alt="Escape Room">
+        </div>
+
+        <div class="slides">
+            <img src="scary.jpeg" alt="Escape Room">
+        </div>
+
+        <div class="slides">
+            <img src="scary2.jpeg" alt="Escape Room">
+        </div>
+
+        <div class="slides">
+            <img src="scary3.jpeg" alt="Escape Room">
+        </div>
+
+        <div class="slides">
+            <img src="scary4.jpeg" alt="Escape Room">
+        </div>
+
+        <div class="slides">
+            <img src="scary5.jpeg" alt="Escape Room">
+        </div>
+
+        <div class="slides">
+            <img src="scary6.jpeg" alt="Escape Room">
+        </div>
+
+
+        <!-- Add more slides as needed -->
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+
+        <!-- Add more dots as needed -->
+    </div>
+</div>
+
+
+<h1><center>CLICK ME!</center></h1>
+
+<div class="letter-container" onclick="toggleLetter()">
+    <img src="https://media2.giphy.com/media/cx1SVu2ehrkygaIMlk/giphy.gif?cid=6c09b95205io2na3l016dl3grgz07bqd6x8vfpg8jl2lasac&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Letter Image">
+    <div class="letter" id="letter">
+        <div class="flap">
+            <div class="flap-text">Click to Open</div>
+        </div>
+        <div class="content">
+            <h2>Akash,</h2>
+            <p>Happy Birthday my lover! My love for you is forever growing! You're so goofy, mane. Time with you is never enough because you keep everyone around you happy and I can't stop thinking about you post meets. Your discipline is admirable, and that's what makes you so successful. You'll make it so big in life and hopefully do research and save the world with your findings (trust me, whatever i say comes true) as you wanted. My boy is a very respectable man with so much values and it's so impressive how you've been raised. But you have the heart of a 7-year old Club Penguin player hehe, and even though you might disagree, you're truly innocent and deserve head pats every day.  Speaking of headpats, those voluminous floooofy hair is to die for. We clicked so fast one morning, and since then, you've been a major part of my days. I wish you the best health and hope you get smacked with all the good in life. I'm sending suffocating virtual hugs your way for now.</p>
+            <p>With all my love,<br>Rachana</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h1>Are you down for a grind session? Click YES to affirm</h1>
+   <img src="hehe.png" alt="Us Together">
+    <p><a href="https://meet.google.com/wtk-minj-zje" class="button">YES</a></p>
+</div>
+
+<script>
+    const timelineSlider = document.getElementById("timeline-slider");
+    const sliderOutput = document.getElementById("slider-output");
+    const timelineEvents = [
+        "Escape Room",
+        "Anna University during Seigei Display",
+        "Manjummel Boys",
+        "Island Ground",
+        "Premalu",
+        "Mathsya + Bessy",
+        "LXG + McDonald's + underground spot",
+        "Early Morning Bessy",
+        "Crema + Bessy",
+        "Bessy + Printing",
+        "Bessy + Mango Garlic Juice",
+        "Mom meet up",
+        "Kong vs Godzilla Tamil Dub Sangam and McD + noodle theory + handwash test",
+        "McD (\"I didn't want him day\") day",
+        "Shreemithai + Modeling Photoshoot",
+        "1 hour at Phoenix (parking ticket)",
+        "1 minute DABC 2nd floor meetup",
+        "Chai Galli",
+        "Walk and Xtaze",
+        "Kathipara Theobroma + campus spot",
+        "DABC left most side block 2 min meet",
+        "DABC terrace",
+        "Freaky DABC terrace Ajfan Creamery",
+        "Helicopter Origami 4th floor",
+        "Meet in middle McD Westside during arrear investigation",
+        "Post dengue meet up",
+        "Two kids in terrace + strawberry mogu mogu drink day",
+        "Badminton + freaky trial room"
+    ];
+
+    timelineSlider.addEventListener("input", function() {
+        sliderOutput.innerHTML = timelineEvents[this.value - 1];
+    });
+
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    document.getElementById('timeline-slider').addEventListener('input', function() {
+    const value = this.value;
+    document.getElementById('slider-output').textContent = timelineData[value];
+});
+
+function toggleLetter() {
+    const letter = document.getElementById('letter');
+    letter.classList.toggle('open');
+}
+
+document.getElementById('music-button').addEventListener('click', function() {
+    const audio = document.getElementById('background-music');
+    if (audio.paused) {
+        audio.play();
+        this.querySelector('.label').textContent = 'From Reniba, Swetha, Nola, Harsha and Yours Truly';
+    } else {
+        audio.pause();
+        this.querySelector('.label').textContent = 'CLICK ME!';
+    }
+});
+
+</script>
+
+</body>
+</html>
